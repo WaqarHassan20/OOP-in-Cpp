@@ -2,7 +2,8 @@
 #include <iostream>
 using namespace std;
 // ASSIGNMENT QUESTION 0N CLASS STUDENT BY ABDUL BARI
-class STUDENT {
+class STUDENT
+{
 private:
   int rollNo;
   string name;
@@ -11,7 +12,8 @@ private:
   int mathMarks;
 
 public:
-  STUDENT(int r, string n, int p, int c, int m) {
+  STUDENT(int r, string n, int p, int c, int m)
+  {
     rollNo = r;
     name = n;
     phyMarks = p;
@@ -21,18 +23,25 @@ public:
 
   int totalMarks() { return phyMarks + cheMarks + mathMarks; }
 
-  char grade() {
+  char grade()
+  {
     float average = totalMarks() / 3.0; // Ensure floating-point division
-    if (average >= 80) {
+    if (average >= 80)
+    {
       return 'A';
-    } else if (average >= 60 && average < 80) {
+    }
+    else if (average >= 60 && average < 80)
+    {
       return 'B';
-    } else {
+    }
+    else
+    {
       return 'C'; // Ensure this branch always returns a value
     }
   }
 };
-int main() {
+int main()
+{
   int roll, phy, chem, math;
   string name;
   cout << "Enter the roll no of student : ";
