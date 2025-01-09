@@ -1,62 +1,113 @@
-//  CODE TO WRITE A PERFECT CLASS
 #include <iostream>
 using namespace std;
 
-class Rectangle {
-  int length;
-  int width;
+// Rectangle class: Represents a geometric rectangle with length and width
+class Rectangle
+{
+private:
+  int length; // Stores the length of the rectangle
+  int width;  // Stores the width of the rectangle
 
 public:
+  // Default constructor
   Rectangle();
-  Rectangle(Rectangle &rec);
+
+  // Copy constructor
+  Rectangle(const Rectangle &rec);
+
+  // Parameterized constructor
   Rectangle(int l, int w);
-  int getLength() { return length; };
-  int getWidth() { return width; };
+
+  // Getter methods
+  int getLength() { return length; }
+  int getWidth() { return width; }
+
+  // Setter methods
   void setLength(int l);
   void setWidth(int w);
+
+  // Utility methods
   int area();
   int perimeter();
   bool isSquare();
+
+  // Destructor
   ~Rectangle();
 };
-Rectangle::Rectangle() {
+
+// Default constructor
+Rectangle::Rectangle()
+{
   length = 1;
   width = 1;
 }
-Rectangle::Rectangle(int l,
-                     int w) //  Rectangle::Rectangle(int length, int width) //
+
+// Parameterized constructor
+Rectangle::Rectangle(int l, int w)
 {
-  length = l; // this->length = length;  //
-  width = w;  // this->width = width; //
+  length = l;
+  width = w;
 }
-Rectangle::Rectangle(Rectangle &rec) {
+
+// Copy constructor
+Rectangle::Rectangle(const Rectangle &rec)
+{
   length = rec.length;
   width = rec.width;
 }
-void Rectangle::setLength(int l) {
-  if (l >= 0) {
+
+// Setter method for length
+void Rectangle::setLength(int l)
+{
+  if (l >= 0)
     length = l;
-  } else {
+  else
     cout << "Invalid length ";
-  }
 }
-void Rectangle::setWidth(int w) {
-  if (w >= 0) {
+
+// Setter method for width
+void Rectangle::setWidth(int w)
+{
+  if (w >= 0)
     width = w;
-  } else {
+  else
     cout << "Invalid width ";
-  }
 }
-int Rectangle::area() { return length * width; }
-int Rectangle::perimeter() { return 2 * (length + width); }
-bool Rectangle::isSquare() { return length == width; }
-Rectangle::~Rectangle() { cout << "Destroyed successfully "; }
-int main() {
+
+// Calculate area
+int Rectangle::area()
+{
+  return length * width;
+}
+
+// Calculate perimeter
+int Rectangle::perimeter()
+{
+  return 2 * (length + width);
+}
+
+// Check if square
+bool Rectangle::isSquare()
+{
+  return length == width;
+}
+
+// Destructor
+Rectangle::~Rectangle() {}
+
+// Main function
+int main()
+{
   Rectangle rec(10, 15);
   cout << "AREA is = " << rec.area() << endl;
-  if (rec.isSquare() == true) {
-    cout << "YES , It is squared " << endl;
-  } else {
-    cout << "NO , Its Not squared" << endl;
+  if (rec.isSquare())
+  {
+    cout << "YES, It is a square" << endl;
   }
+  else
+  {
+    cout << "NO, It's not a square" << endl;
+  }
+
+  return 0;
 }
