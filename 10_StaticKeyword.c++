@@ -1,31 +1,35 @@
 #include <iostream>
 using namespace std;
+
 class test
 {
 private:
-    int a;
-    int b;
+    int a, b;
 
 public:
-    static int count;
+    static int count; // Shared among all objects
+
     test()
     {
         a = 10;
         b = 20;
-        count++;
+        count++; // Increment on each object creation
     }
+
     static int getCount()
     {
-        return count;
+        return count; // Return current count
     }
 };
-int test::count = 0;
+
+int test::count = 0; // Initialize static variable
+
 int main()
 {
     test t1, t2, t3;
-    cout << t1.getCount() << endl;
-    cout << test::getCount() << endl;
-    t1.count = 50;
-    cout << t2.getCount() << endl;
+    cout << t1.getCount() << endl;    // Access count using object
+    cout << test::getCount() << endl; // Access count using class name
+    t1.count = 50;                    // Modify static variable
+    cout << t2.getCount() << endl;    // Updated count reflected for all objects
     return 0;
 }
